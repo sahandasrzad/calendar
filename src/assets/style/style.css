@@ -1,0 +1,26 @@
+@tailwind base;
+
+@layer base {
+  html {
+    @apply text-neutral-800;
+  }
+  html.dark {
+    @apply text-neutral-50;
+    @apply bg-neutral-800;
+  }
+}
+
+@tailwind components;
+@tailwind utilities;
+
+--dp-primary-color {
+  --dp-primary-color: pink !important;
+}
+.dp__range_end,
+.dp__range_start,
+.dp__active_date {
+  background: #cbd5e1 !important;
+}
+.dp__today {
+  border: 1px solid #cbd5e1 !important;
+}
