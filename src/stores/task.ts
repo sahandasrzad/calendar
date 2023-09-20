@@ -1,46 +1,59 @@
 import { defineStore } from 'pinia'
-import { Task, State } from '@/types/storetypes'
+import { Task, State } from '@/types/storetypes.d.ts'
 import { defaultTask } from '@/utils/generator.ts'
 export const useTaskStore = defineStore({
   id: 'task',
-
   state: (): State => ({
+    task: null,
+    editFlag: false,
     tasks: [],
     modalStatus: false,
   }),
   getters: {
-    getTasks: state => state.tasks,
-    lastTask: state => {
-      let last = state.tasks.splice(-1)
-      return last[0]
+    getTasks({ tasks }) {
+      return tasks
     },
   },
   actions: {
     changeModalStatus() {
       this.modalStatus = !this.modalStatus
-      this.tasks.splice(-1)
-      console.log('this.tasks', this.tasks)
+      this.task = null
+      // this.tasks.splice(-1)
     },
-    addTask(index: any): any {
+    initializeTask(index: any): any {
       const newTask = defaultTask()
-      console.log('index hour store', index)
-
-      newTask.time_and_date.end_time.value = index
-      newTask.time_and_date.start_time.value = index - 1
-      newTask.style.top = index * 40 - 38
-      console.log('tassss', newTask)
-
-      this.tasks.push(newTask)
+      newTask.end_time.value = index
+      newTask.end_time.text = `${index} am`
+      newTask.start_time.text = `${index - 1} am`
+      newTask.start_time.value = index - 1
+      newTask.style.top = index * 40 - 40
+      this.task = newTask
       this.modalStatus = true
     },
-    updateTask(id: string, item: Task) {
-      if (!id || !item) return
-      const findOne = this.tasks.findIndex(el => el.id === id)
-      this.tasks[findOne] = item
+    updateInitTask(item: Task) {
+      this.task = item
+    },
+    addTask(item: Task) {
+      if (this.editFlag) {
+        const findIndex = this.tasks.findIndex(
+          (el: { id: any }) => el.id === item.id,
+        )
+        this.tasks.splice(findIndex, 1, item)
+        this.editFlag = false
+      } else {
+        this.tasks.push(item)
+      }
+    },
+    updateTask(id: string) {
+      if (!id) return
+      const item = this.tasks.find((el: { id: string }) => el.id === id)
+      this.task = item
+      this.editFlag = true
+      this.modalStatus = true
     },
     deleteTask(id: string) {
       if (!id) return
-      const findOne = this.tasks.findIndex(el => el.id === id)
+      const findOne = this.tasks.findIndex((el: { id: string }) => el.id === id)
       this.tasks.splice(findOne, 1)
     },
   },

@@ -11,7 +11,7 @@
   const props = defineProps(['index'])
   const taskStore = useTaskStore()
   const click = () => {
-    taskStore.addTask(props.index)
+    taskStore.initializeTask(props.index)
   }
 </script>
 
@@ -22,6 +22,6 @@
     position: absolute;
     width: 100%;
     margin-top: -1px;
-    z-index: 3;
+    z-index: -3;
   }
 </style>

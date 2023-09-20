@@ -3,12 +3,9 @@ export type Task = {
   id: string
   title?: string | undefined
   repeat: repeat
-  time_and_date: {
-    start_time: object
-    end_time: object
-    start_date: string
-    end_Date: string
-  }
+  start_time: object
+  end_time: object
+  start_date: string
   style: {
     color: object
     top: number
@@ -17,6 +14,7 @@ export type Task = {
 }
 
 export type State = {
+  task: null | Task
   tasks: Task[]
   modalStatus: boolean
 }

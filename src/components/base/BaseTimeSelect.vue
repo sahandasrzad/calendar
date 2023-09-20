@@ -37,10 +37,7 @@
     tabindex: { type: Number, required: false, default: 0 },
     modelValue: {
       type: Object,
-      default: {
-        text: '',
-        value: 0,
-      },
+      default: null,
     },
     label: {
       type: String,
