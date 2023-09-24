@@ -7,9 +7,7 @@
       role="dialog"
       aria-modal="true"
     >
-      <div
-        class="fixed inset-0 bg-gray-500 bg-opacity-40 transition-opacity"
-      ></div>
+      <div class="fixed inset-0 bg-gray-500 bg-opacity-40 transition-opacity"></div>
       <div class="fixed inset-0 z-10 overflow-y-auto">
         <div
           class="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0"
@@ -28,9 +26,11 @@
 </template>
 
 <script setup lang="ts">
-  import { useTaskStore } from '@/stores/task'
+  import {useTaskStore} from '@/stores/task'
   import ModalForm from '@/components/ModalForm.vue'
+  // pinia store
   let taskStore = useTaskStore()
+  //
 </script>
 <style scoped>
   .pop-enter-active,

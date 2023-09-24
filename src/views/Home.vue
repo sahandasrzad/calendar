@@ -1,7 +1,10 @@
 <template>
-  <div class="container flex relative m-10 h-screen">
-    <date-selector></date-selector>
-    <time-line></time-line>
+  <div class="flex flex-wrap relative m-10 h-auto">
+    <nav-line></nav-line>
+    <div class="flex flex-row w-full">
+      <date-selector></date-selector>
+      <time-line></time-line>
+    </div>
     <task-modal></task-modal>
   </div>
 </template>
@@ -10,7 +13,7 @@
   import DateSelector from '@/components/DateSelector.vue'
   import TimeLine from '@/components/TimeLine.vue'
   import TaskModal from '@/components/TaskModal.vue'
-  import { ref } from 'vue'
+  import NavLine from '@/components/NavLine.vue'
 </script>
 <style>
   body {

@@ -3,8 +3,9 @@
   "semi": false,
   "trailingComma": "all",
   "tabWidth": 2,
-  "printWidth": 80,
-  "endOfLine": "auto",
+  "printWidth": 90,
+  "bracketSpacing": false,
+  "endOfLine": "lf",
   "arrowParens": "avoid",
   "htmlWhitespaceSensitivity": "css",
   "vueIndentScriptAndStyle": true

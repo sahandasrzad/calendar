@@ -1,5 +1,5 @@
 <template>
-  <div class="relative">
+  <div class="relative basis-2/12">
     <VueDatePicker
       inline
       auto-apply
@@ -9,6 +9,6 @@
   </div>
 </template>
 <script setup lang="ts">
-  import { useDate } from '@/composables/date.ts'
-  const { update, date } = useDate()
+  import {useDate} from '@/composables/date'
+  const {update, date} = useDate()
 </script>

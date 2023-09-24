@@ -1,18 +1,24 @@
 <template>
   <div
+    @click.prevent="initTask"
     role="button"
-    @click.prevent="click"
     class="line-item h-10 w-full border-l border-slate-400"
   ></div>
 </template>
 
 <script setup lang="ts">
-  import { useTaskStore } from '@/stores/task.ts'
-  const props = defineProps(['index'])
+  import {useTaskStore} from '../stores/task'
+  // props
+  const props = defineProps(['indexLine'])
+  //
+  // pinia store
   const taskStore = useTaskStore()
-  const click = () => {
-    taskStore.initializeTask(props.index)
+  //
+  // event
+  const initTask = () => {
+    taskStore.createTask(props.indexLine)
   }
+  //
 </script>
 
 <style scoped>

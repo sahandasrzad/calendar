@@ -1,27 +1,16 @@
 {
   "compilerOptions": {
-    "target": "ES2020",
+    "target": "ES2022",
     "useDefineForClassFields": true,
     "module": "ESNext",
-    "lib": ["ES2020", "DOM", "DOM.Iterable"],
+    "lib": ["ES2022", "DOM", "DOM.Iterable"],
     "skipLibCheck": true,
-
-    //imported
-    // "importHelpers": true,
-    // "moduleResolution": "node",
-    // "esModuleInterop": true,
-    // "allowSyntheticDefaultImports": true,
-    // "sourceMap": true,
-
-    /* Bundler mode */
+    "baseUrl": ".",
     "moduleResolution": "node",
-    "allowImportingTsExtensions": true,
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
     "jsx": "preserve",
-
-    /* Linting */
     "strict": true,
     "noUnusedLocals": false,
     "noUnusedParameters": false,
@@ -38,5 +27,5 @@
     "src/**/*.vue",
     "styles.d.ts"
   ],
-  "references": [{ "path": "./tsconfig.node.json" }]
+  "references": [{"path": "./tsconfig.node.json"}]
 }

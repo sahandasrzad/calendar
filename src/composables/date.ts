@@ -1,13 +1,14 @@
-import { ref } from 'vue'
-
+import { ref, watch } from 'vue'
+import { useDateStore } from '@/stores/date'
 export const useDate = () => {
+  const moveTimer = ref()
   const date = ref()
-  const name = ref('ghola')
+  const day = ref()
+  const dateStore = useDateStore()
   const update = (param: Date) => {
-    console.log(param)
-
     date.value = param
+    day.value = param.getDate()
+    dateStore.changeDate(param)
   }
-
-  return { update, date, name }
+  return { update, date, day }
 }
