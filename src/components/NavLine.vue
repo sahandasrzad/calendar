@@ -5,9 +5,9 @@
     </div>
   </div>
 </template>
-<script setup>
+<script setup lang="ts">
   import {ref, watch} from 'vue'
-  import {useDateStore} from '@/stores/date.ts'
+  import {useDateStore} from '@/stores/date'
   // pinia store
   const dateStore = useDateStore()
   //
